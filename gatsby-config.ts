@@ -1,34 +1,58 @@
-import type { GatsbyConfig } from "gatsby";
+/**
+ * Configure your Gatsby site with this file.
+ *
+ * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
+ */
 
-const config: GatsbyConfig = {
+/**
+ * @type {import('gatsby').GatsbyConfig}
+ */
+module.exports = {
   siteMetadata: {
-    title: `azouanedjamila.com`,
-    siteUrl: `https://azouanedjamila.com`
+    title: `Portfolio Azouane Djamila`,
+    description: `Showcase of my experience, projects, and skills.`,
+    author: `@azouanedjamila`,
+    siteUrl: `https://azouanedjamila.com`,
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
-  graphqlTypegen: true,
-  plugins: ["gatsby-plugin-image", "gatsby-plugin-sitemap", {
-    resolve: 'gatsby-plugin-manifest',
-    options: {
-      "icon": "src/images/icon.png"
-    }
-  }, "gatsby-plugin-mdx", "gatsby-transformer-remark", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "images",
-      "path": "./src/images/"
+  plugins: [
+    `gatsby-plugin-react-helmet`,        // For managing the head tag and SEO
+    `gatsby-plugin-image`,               // For optimized image loading
+    `gatsby-transformer-sharp`,          // Image transformations like resizing
+    `gatsby-plugin-sharp`,               // For optimized image handling
+    `gatsby-transformer-remark`,         // Markdown file processing (content)
+    {
+      resolve: `gatsby-source-filesystem`, 
+      options: {
+        name: `projects`,
+        path: `${__dirname}/src/content/projects`, // Path to your projects folder
+      },
     },
-    __key: "images"
-  }, {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "pages",
-      "path": "./src/pages/"
+    `gatsby-plugin-sass`,                // Support for SASS/SCSS styles
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `experiences`,
+        path: `${__dirname}/src/content/experiences`, // Path to your experiences folder
+      },
     },
-    __key: "pages"
-  }]
-};
-
-export default config;
+    {
+      resolve: `gatsby-plugin-manifest`,  // Setup PWA capabilities and site metadata
+      options: {
+        name: `Portfolio Azouane Djamila`,
+        short_name: `Portfolio`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#333333`,
+        display: `minimal-ui`,
+        icon: `src/images/gatsby-icon.png`, // Path to your site's icon
+      },
+    },
+  ],
+  flags: {
+    DEV_SSR: true,
+    FAST_DEV: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    PARALLEL_SOURCING: true,
+    DETECT_NODE_MUTATIONS: true,
+  },
+}

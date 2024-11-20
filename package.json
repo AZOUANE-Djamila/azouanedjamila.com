@@ -17,6 +17,9 @@
   },
   "dependencies": {
     "@mdx-js/react": "^2.0.0",
+    "@types/react-router-dom": "^5.3.3",
+    "antd": "^5.22.2",
+    "framer-motion": "^11.11.17",
     "gatsby": "^5.14.0",
     "gatsby-plugin-image": "^3.14.0",
     "gatsby-plugin-manifest": "^5.14.0",
@@ -31,6 +34,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-intersection-observer": "^9.13.1",
+    "react-router-dom": "^6.28.0",
+    "react-spring": "^9.7.4",
     "sass": "^1.81.0",
     "sass-loader": "^16.0.3",
     "yarn": "^1.22.22"
@@ -39,6 +45,6 @@
     "@types/node": "^20.11.19",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
-    "typescript": "^5.3.3"
+    "typescript": "^5.6.3"
   }
 }

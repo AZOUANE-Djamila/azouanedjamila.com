@@ -1,5 +1,10 @@
-@import 'variables';
-@import 'mixins';
-@import 'typography';
-@import 'layout';
-@import 'global';
+@use './variables' as vars;
+@use './mixins' as mix;
+@use './typography' as typo;
+@use './layout' as layout;
+@use './global' as global;
+
+.custom-header {
+  color: vars.$primary-color;    // Accessing a variable from variables.scss
+  @include mix.some-mixin;       // Using a mixin from mixins.scss
+}

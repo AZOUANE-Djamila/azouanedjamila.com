@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Layout, Menu } from 'antd';
 import { Link } from 'react-router-dom';
-import '../styles/navbar.scss'; // Import the SCSS styles
+import '../styles/navbar.scss'; // Import your custom SCSS styles
 
 const { Header, Content, Footer } = Layout;
 
-const CustomLayout = ({ children }) => (
+interface CustomLayoutProps {
+  children: ReactNode;  // Explicitly type the 'children' prop
+}
+
+const CustomLayout: React.FC<CustomLayoutProps> = ({ children }) => (
   <Layout>
     {/* Header Section */}
     <Header className="custom-header">
@@ -26,7 +30,9 @@ const CustomLayout = ({ children }) => (
     </Header>
 
     {/* Content Area */}
-    <Content className="custom-content">{children}</Content>
+    <Content className="custom-content">
+      {children}
+    </Content>
 
     {/* Footer Section */}
     <Footer className="custom-footer">

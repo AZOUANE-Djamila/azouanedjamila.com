@@ -1,4 +1,4 @@
-@import './variables';
+@use './_variables' as *; 
 
 .hero-section {
   height: 76vh;

@@ -1,4 +1,4 @@
-@import './_variables';
+@use './_variables' as *; 
 
 .contact-section {
   padding: 40px 0;

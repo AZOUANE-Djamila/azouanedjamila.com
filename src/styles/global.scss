@@ -1,5 +1,4 @@
-@import './_variables'; // Assuming you have a variables file for color and other constants
-
+@use './_variables' as *; 
 // Shared background style
 .page-background {
   position: relative;

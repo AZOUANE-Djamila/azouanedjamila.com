@@ -1,6 +1,6 @@
 // Define Color Variables
-@import './global.scss';
-@import './variables';
+@use './_variables' as *; ;
+@use './global' as *; 
 
 // Global styles for navbar and layout
 .custom-header {

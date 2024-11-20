@@ -1,4 +1,4 @@
-@import './_variables';
+@use './_variables' as *; 
 
 .projects-section {
   padding: 20px 0;

@@ -1,14 +1,15 @@
-@use './global' as *; 
-@use './variables' as *; 
+// Import necessary SCSS modules
+@use './global' as *;
+@use './variables' as *; // Using variables from the _variables.scss file
 
-// Define color variables for consistency
+// Define additional color variables for consistency
 $light-gray: '#f9f9f9';
 $white-color: '#ffffff';
-$black-color: '#333333'; // assuming this color is used for text
+$black-color: '#333333'; // Assuming this color is used for text
 
 .about {
   padding: 60px 20px; // Adjusted for a more compact, minimal feel
-  background-color: transparent; 
+  background-color: transparent;
   text-align: center;
   transition: background-color 0.3s ease; // Smooth transition for background
 
@@ -57,7 +58,7 @@ $black-color: '#333333'; // assuming this color is used for text
   }
 
   // Mobile-first responsive adjustments
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-md) {
     padding: 50px 20px;
 
     h2 {

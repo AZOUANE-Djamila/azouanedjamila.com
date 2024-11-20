@@ -5,6 +5,11 @@
 @use './global' as global;
 
 .custom-header {
-  color: vars.$primary-color;    // Accessing a variable from variables.scss
-  @include mix.some-mixin;       // Using a mixin from mixins.scss
+  color: vars.$primary-color;  // Accessing a variable from variables.scss
+  @include mix.some-mixin;     // Using a mixin from mixins.scss
+  font-family: typo.$font-family;  // Accessing font-family from typography.scss
+  padding: layout.$spacing-medium; // Using a spacing variable from layout.scss
+  
+  // Add global styles if necessary
+  @include global.some-global-style;  // Example of using global styles (replace with actual mixin or rule)
 }

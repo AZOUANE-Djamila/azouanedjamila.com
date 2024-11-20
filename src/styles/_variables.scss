@@ -1,23 +1,114 @@
-// _variables.scss
-$primary-color: #b76e79; // Customize your brand color
-$font-family: 'Poppins', sans-serif;
-/* variables.scss */
+@use './_variables' as *;
 
-/* Colors */
-$primary-color: #b76e79;
-$secondary-color: #f1f1f1;
-$text-color: #333;
-$background-color: #f8f9fa;
-$hover-color: #b76e79;
+.projects-section {
+  padding: 20px 0;
 
-/* Fonts */
-$font-family: 'Poppins', sans-serif;
+  .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 24px;
+    font-weight: bold;
+    color: $primary-color;
+  }
 
-/* Spacing */
-$spacing-small: 8px;
-$spacing-medium: 15px;
-$spacing-large: 20px;
+  .project-card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 
-/* Breakpoints */
-$breakpoint-md: 768px;
-$breakpoint-lg: 1024px;
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    .project-image-wrapper {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 8px 8px 0 0;
+
+      .project-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      .overlay-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      &:hover .overlay-text {
+        opacity: 1;
+      }
+    }
+
+    .project-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: $primary-color;
+    }
+
+    .project-description {
+      color: #555;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .view-project-button {
+      margin-top: 10px;
+      width: 100%;
+      background-color: $primary-color;
+      border: none;
+      padding: 10px 0;
+      text-align: center;
+      color: #fff;
+      font-weight: bold;
+
+      &:hover {
+        background-color: $hover-color;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+
+    .section-title {
+      font-size: 20px;
+    }
+
+    .project-card {
+      margin-bottom: 20px;
+    }
+
+    .project-title {
+      font-size: 16px;
+    }
+
+    .project-description {
+      font-size: 0.85rem;
+    }
+
+    .view-project-button {
+      padding: 12px 0;
+    }
+  }
+}

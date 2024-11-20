@@ -1,19 +1,20 @@
-@use './_variables' as *; 
+// Import variables from the _variables.scss file
+@use './_variables' as *;
 
 .contact-section {
   padding: 40px 0;
-  background-color: #f9f9f9;
+  background-color: $light-gray; // Using the variable for light gray background
 
   .section-title {
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    color: $primary-color;
+    color: $primary-color; // Using the primary color from variables
     margin-bottom: 20px;
   }
 
   .contact-form {
-    background-color: #fff;
+    background-color: $white-color; // Using the white color from variables
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -42,7 +43,7 @@
       width: 100%;
       background-color: $primary-color;
       border: none;
-      color: #fff;
+      color: $white-color; // White color for the text of the button
       font-weight: bold;
       transition: background-color 0.3s ease;
 
@@ -52,7 +53,8 @@
     }
   }
 
-  @media (max-width: 768px) {
+  // Mobile-first responsive adjustments
+  @media (max-width: $breakpoint-md) {
     .section-title {
       font-size: 20px;
     }

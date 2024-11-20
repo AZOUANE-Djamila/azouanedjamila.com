@@ -1,0 +1,66 @@
+@import './variables';
+
+.hero-section {
+  height: 76vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 5%;
+  position: relative;
+  background-image: url('../images/hero.jpg');
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+
+  // Overlay to enhance contrast
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 51, 0.6); // Semi-transparent navy overlay
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2; // Ensure it appears above the overlay
+    color: #ffffff; // White text for better contrast
+
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-buttons {
+      .cta-button {
+        margin-right: 10px;
+        background-color: $primary-color;
+        color: #fff;
+        border: none;
+        &:hover {
+          background-color: $hover-color;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-content {
+      text-align: center;
+    }
+  }
+}

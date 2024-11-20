@@ -1,0 +1,75 @@
+@import './global.scss';
+
+// Define color variables for consistency
+$light-gray: '#f9f9f9';
+$white-color: '#ffffff';
+$black-color: '#333333'; // assuming this color is used for text
+
+.about {
+  padding: 60px 20px; // Adjusted for a more compact, minimal feel
+  background-color: transparent; 
+  text-align: center;
+  transition: background-color 0.3s ease; // Smooth transition for background
+
+  h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: $golden-rose-color;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: $white-color;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 1; // Slight increase in opacity on hover for dynamic feel
+    }
+  }
+
+  .ant-card {
+    background-color: $white-color;
+    border-radius: 8px; // Rounded corners for a softer look
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+    transition: box-shadow 0.3s ease, transform 0.3s ease; // Smooth card hover effect
+
+    &:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); // Stronger shadow on hover
+      transform: translateY(-5px); // Slight lift effect on hover
+    }
+
+    .ant-card-body {
+      padding: 30px;
+    }
+
+    .ant-card-title {
+      font-size: 1.8rem;
+      color: $golden-rose-color;
+      font-weight: 500;
+    }
+  }
+
+  // Mobile-first responsive adjustments
+  @media (max-width: 768px) {
+    padding: 50px 20px;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      max-width: 100%;
+    }
+
+    .ant-card {
+      margin: 0 10px;
+    }
+  }
+}

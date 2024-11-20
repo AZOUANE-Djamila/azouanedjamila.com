@@ -1,0 +1,68 @@
+@import './_variables';
+
+.contact-section {
+  padding: 40px 0;
+  background-color: #f9f9f9;
+
+  .section-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: $primary-color;
+    margin-bottom: 20px;
+  }
+
+  .contact-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    .ant-form-item-label > label {
+      color: $primary-color;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .ant-input,
+    .ant-input-textarea {
+      border-radius: 4px;
+      border: 1px solid $primary-color;
+      padding: 10px;
+      font-size: 0.9rem;
+      color: $text-color;
+
+      &:focus,
+      &:hover {
+        border-color: $hover-color;
+      }
+    }
+
+    .submit-button {
+      width: 100%;
+      background-color: $primary-color;
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $hover-color;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 20px;
+    }
+
+    .contact-form {
+      padding: 15px;
+
+      .ant-form-item-label > label {
+        font-size: 0.95rem;
+      }
+    }
+  }
+}

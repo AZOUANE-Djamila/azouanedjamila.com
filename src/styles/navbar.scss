@@ -1,0 +1,124 @@
+// Define Color Variables
+@import './global.scss';
+@import './variables';
+
+// Global styles for navbar and layout
+.custom-header {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 50px;
+  border-color: #333333;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: $primary-color;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $hover-color;
+  }
+}
+
+.custom-menu {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .ant-menu-item {
+    margin: 0 15px;
+    position: relative;
+  }
+
+  .ant-menu-item a {
+    font-weight: 500;
+    text-decoration: none;
+    color: $primary-color;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $hover-color;
+    }
+  }
+
+  ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid $primary-color;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+
+    li {
+      padding: 5px 10px;
+      color: $primary-color;
+    }
+  }
+
+  // Show submenu on hover
+  .ant-menu-item:hover ul {
+    display: block;
+  }
+
+  // Custom border for Ant Design Menu items
+  .ant-menu-item:hover::before,
+  .ant-menu-item:active::before,
+  .ant-menu-item.ant-menu-item-selected::before,
+  .ant-menu-item.ant-menu-item-active::after,
+  .ant-menu-item.ant-menu-item-selected::after,
+  .ant-menu-submenu-selected::after,
+  .ant-menu-light.ant-menu-horizontal > .ant-menu-item-selected::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: $primary-color;
+  }
+}
+
+.custom-content {
+  padding: 0 50px;
+  margin-top: 64px;
+}
+
+.custom-footer {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.ant-menu-light.ant-menu-horizontal > .ant-menu-item-selected::after,
+.ant-menu-item-active::after {
+  border-bottom-color: $primary-color;
+}
+
+// Responsive styles for mobile
+@media (max-width: 768px) {
+  .custom-header {
+    padding: 0 20px;
+  }
+
+  .custom-menu {
+    display: none; // Can consider toggling with a mobile menu icon here
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+}

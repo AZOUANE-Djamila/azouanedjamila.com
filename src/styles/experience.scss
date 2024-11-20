@@ -1,0 +1,111 @@
+@import './_variables';
+
+.experience-section {
+  padding: $spacing-large $spacing-small;
+  background-color: transparent;
+  color: $text-color;
+  text-align: center;
+}
+
+.experience-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: $primary_color; /* Apply rose gold color */
+  text-shadow: 0 0 0.25px currentcolor; /* Keep the text shadow as is */
+}
+
+.experience-tabs .ant-tabs-tab {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: $text-color;
+  padding: $spacing-small $spacing-medium;
+  border-bottom: 1px solid $primary-color; /* Apply primary color border */
+  transition: all 0.3s ease;
+}
+
+.experience-tabs .ant-tabs-tab-active,.ant-tabs .ant-tabs-tab:hover {
+  //background-color: #fff;
+  color: $primary_color; /* Apply rose gold to active tab text */
+  border-bottom: 2px solid $primary-color; /* Use primary color for active tab border */
+}
+
+.experience-category {
+  color: $primary-color;
+  margin-top: $spacing-large;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $spacing-medium;
+}
+
+.experience-card {
+  background: #fff;
+  padding: $spacing-medium;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: all 0.3s ease;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 1px solid $primary-color; /* Apply primary color border to all cards */
+}
+.ant-tabs .ant-tabs-ink-bar{
+    background: $primary-color;
+}
+.experience-card__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $text-color;
+}
+
+.experience-card__company {
+  font-size: 1.2rem;
+  color: #777;
+}
+
+.experience-card__description {
+  margin-top: $spacing-small;
+  font-size: 1rem;
+  color: #555;
+}
+
+.experience-card__skills {
+  margin-top: $spacing-medium;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.experience-card__skill-tag {
+  background-color: $secondary-color;
+  color: $text-color;
+  border-radius: 12px;
+  padding: $spacing-small $spacing-medium;
+  font-size: 0.9rem;
+  border-bottom: 1px solid $primary-color; /* Apply primary color border to skill tags */
+}
+
+.cta-button {
+  margin-top: $spacing-large;
+  padding: $spacing-small $spacing-medium;
+  font-size: 1rem;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.cta-button:hover {
+  background-color: $hover-color;
+}
+
+@media (max-width: $breakpoint-md) {
+  .experience-section__header {
+    font-size: 2rem;
+  }
+  .experience-section__description {
+    font-size: 1.2rem;
+  }
+  .experience-card {
+    padding: $spacing-small;
+  }
+}

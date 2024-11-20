@@ -1,0 +1,30 @@
+@import './_variables'; // Assuming you have a variables file for color and other constants
+
+// Shared background style
+.page-background {
+  position: relative;
+  min-height: 100vh;
+  background-image: url('../images/hero.jpg'); // Update path if needed
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  // Reduced opacity overlay for the background
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 51, 0.3); // Less opacity (30%) for a lighter overlay
+    z-index: 1;
+  }
+
+  // Content to appear on top of the background
+  .content {
+    position: relative;
+    z-index: 2;
+    color: #ffffff; // Ensure good contrast for readability
+  }
+}

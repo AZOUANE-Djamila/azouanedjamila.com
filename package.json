@@ -31,6 +31,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "sass": "^1.81.0",
+    "sass-loader": "^16.0.3",
     "yarn": "^1.22.22"
   },
   "devDependencies": {

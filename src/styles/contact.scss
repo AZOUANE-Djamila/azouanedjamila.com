@@ -1,6 +1,7 @@
-// Import variables from the _variables.scss file
-@use './_variables' as *;
-
+// Import variables from the variables.scss file
+@use './variables' as *;
+$primary-color: #021020;
+$hover-color: #007bff;
 .contact-section {
   padding: 40px 0;
   background-color: $light-gray; // Using the variable for light gray background

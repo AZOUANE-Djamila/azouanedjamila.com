@@ -1,14 +1,15 @@
-@use './_variables' as *;
-
+@use './variables' as *;
+$primary-color: #021020;
+$hover-color: #007bff;
 .contact-section {
   padding: 40px 0;
-  background-color: $light-gray; // Using light-gray from _variables for consistency
+  background-color: $light-gray; // Using light-gray from variables for consistency
 
   .section-title {
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    color: $primary-color; // Color from _variables
+    color: $primary-color; // Color from variables
     margin-bottom: 20px;
   }
 
@@ -19,7 +20,7 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
     .ant-form-item-label > label {
-      color: $primary-color; // Label color from _variables
+      color: $primary-color; // Label color from variables
       font-weight: bold;
       font-size: 1rem;
     }
@@ -30,11 +31,11 @@
       border: 1px solid $primary-color; // Border using primary color
       padding: 10px;
       font-size: 0.9rem;
-      color: $text-color; // Text color from _variables
+      color: $text-color; // Text color from variables
 
       &:focus,
       &:hover {
-        border-color: $hover-color; // Hover color from _variables
+        border-color: $hover-color; // Hover color from variables
       }
     }
 
@@ -52,7 +53,7 @@
     }
   }
 
-  @media (max-width: $breakpoint-md) { // Using breakpoint from _variables
+  @media (max-width: $breakpoint-md) { // Using breakpoint from variables
     .section-title {
       font-size: 20px;
     }

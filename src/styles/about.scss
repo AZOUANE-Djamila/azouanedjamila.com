@@ -1,6 +1,6 @@
 // Import necessary SCSS modules
 @use './global' as *;
-@use './variables' as *; // Using variables from the _variables.scss file
+@use './variables' as *; // Using variables from the variables.scss file
 
 // Define additional color variables for consistency
 $light-gray: '#f9f9f9';

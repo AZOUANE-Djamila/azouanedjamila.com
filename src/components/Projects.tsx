@@ -2,11 +2,11 @@ import React from 'react';
 import { Row, Col, Card, Button } from 'antd';
 import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
+import Layout from '../components/Layout'
+const portfolioImage = require('../images/portfolio.png');
 
-import portfolioImage from '../images/portfolio.png';
-
-import magpharmImage from '../images/WebsiteMagpharmLaboratoires.jpg';
-import cmconsultingImage from '../images/WebsiteCmConsulting.png';
+const magpharmImage = require('../images/WebsiteMagpharmLaboratoires.jpg');
+const cmconsultingImage = require('../images/WebsiteCmConsulting.png');
 
 import '../styles/projects.scss';
 
@@ -44,6 +44,7 @@ const Projects = () => {
   });
 
   return (
+    <Layout>
     <section className="projects-section" ref={ref}>
       <h2 className="section-title">Projects</h2>
       <Row gutter={[16, 16]} justify="center">
@@ -82,6 +83,8 @@ const Projects = () => {
         ))}
       </Row>
     </section>
+    </Layout>
+
   );
 };
 

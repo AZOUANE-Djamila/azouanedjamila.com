@@ -3,7 +3,7 @@ $primary-color: #021020;
 $hover-color: #007bff;
 .contact-section {
   padding: 40px 0;
-  background-color: $light-gray; // Using light-gray from variables for consistency
+  //background-color: $light-gray; // Using light-gray from variables for consistency
 
   .section-title {
     text-align: center;
@@ -14,7 +14,7 @@ $hover-color: #007bff;
   }
 
   .contact-form {
-    background-color: $white-color; // White color for form background
+    //background-color: #ffffff; // White color for form background
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -31,25 +31,18 @@ $hover-color: #007bff;
       border: 1px solid $primary-color; // Border using primary color
       padding: 10px;
       font-size: 0.9rem;
-      color: $text-color; // Text color from variables
-
-      &:focus,
-      &:hover {
-        border-color: $hover-color; // Hover color from variables
-      }
+      //color: $text-color; // Text color from variables
     }
 
     .submit-button {
       width: 100%;
       background-color: $primary-color; // Background color for the submit button
       border: none;
-      color: $white-color; // White text color for the button
+      //color: #ffffff; // White text color for the button
       font-weight: bold;
       transition: background-color 0.3s ease;
 
-      &:hover {
-        background-color: $hover-color; // Hover effect for button
-      }
+      
     }
   }
 

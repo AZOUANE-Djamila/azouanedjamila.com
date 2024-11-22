@@ -1,7 +1,11 @@
 // _variables.scss
 $primary-color: #007bff;
 $secondary-color: #6c757d;
-
+// Breakpoint for medium devices (tablets, small desktops)
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px; // Medium devices (tablets, small desktops)
+$breakpoint-lg: 992px; // Large devices (desktops)
+$breakpoint-xl: 1200px; // Extra large devices (large desktops)
 .projects-section {
   padding: 20px 0;
 
@@ -83,10 +87,6 @@ $secondary-color: #6c757d;
       text-align: center;
       color: #fff;
       font-weight: bold;
-
-      &:hover {
-        background-color: $hover-color;
-      }
     }
   }
 

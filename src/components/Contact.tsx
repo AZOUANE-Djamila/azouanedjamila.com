@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, Row, Col } from 'antd';
 import '../styles/contact.scss';
+import Layout from '../components/Layout'
 
 const Contact = () => {
   const handleSubmit = (values) => {
@@ -8,6 +9,7 @@ const Contact = () => {
   };
 
   return (
+    <Layout>
     <section className="contact-section">
       <h2 className="section-title">Contact Us</h2>
       <Row justify="center">
@@ -50,6 +52,7 @@ const Contact = () => {
         </Col>
       </Row>
     </section>
+    </Layout>
   );
 };
 

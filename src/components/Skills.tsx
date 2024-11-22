@@ -4,10 +4,9 @@ import { motion } from 'framer-motion';
 import '../styles/skills.scss';
 
 // Tool logo imports
-import reactLogo from '../images/react-logo.png';
-import nodejsLogo from '../images/nodejs-logo.svg';
-import jsLogo from '../images/javascript-logo.png';
-// Add more logos as needed
+const reactLogo = require('../images/react-logo');
+const nodejsLogo = require('../images/nodejs-logo.svg');
+const jsLogo = require('../images/javascript-logo.png');
 
 const skillsData = [
   { name: 'React', logo: reactLogo, description: 'Building interactive UIs' },

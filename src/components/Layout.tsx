@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Layout, Menu } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link } from 'gatsby';
 import '../styles/navbar.scss'; // Import your custom SCSS styles
 
 const { Header, Content, Footer } = Layout;

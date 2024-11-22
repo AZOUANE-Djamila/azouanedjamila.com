@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Button, Tabs, Tag } from 'antd';
+import Layout from '../components/Layout'
 import '../styles/experience.scss';
 
 const { TabPane } = Tabs;
@@ -7,6 +8,7 @@ const { TabPane } = Tabs;
 // Experience card component
 const ExperienceCard = ({ title, company, duration, description, skills }) => {
   return (
+    <Layout>
     <Card
       className="experience-card"
       title={<span className="experience-card__title">{title}</span>}
@@ -23,6 +25,7 @@ const ExperienceCard = ({ title, company, duration, description, skills }) => {
         ))}
       </div>
     </Card>
+    </Layout>
   );
 };
 

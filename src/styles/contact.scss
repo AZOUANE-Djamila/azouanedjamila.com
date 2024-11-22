@@ -4,7 +4,7 @@ $primary-color: #021020;
 $hover-color: #007bff;
 .contact-section {
   padding: 40px 0;
-  background-color: $light-gray; // Using the variable for light gray background
+  //background-color: $light-gray; // Using the variable for light gray background
 
   .section-title {
     text-align: center;
@@ -15,7 +15,7 @@ $hover-color: #007bff;
   }
 
   .contact-form {
-    background-color: $white-color; // Using the white color from variables
+    //background-color: #ffffff; // Using the white color from variables
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -32,25 +32,18 @@ $hover-color: #007bff;
       border: 1px solid $primary-color;
       padding: 10px;
       font-size: 0.9rem;
-      color: $text-color;
+      //color: $text-color;
 
-      &:focus,
-      &:hover {
-        border-color: $hover-color;
-      }
+      
     }
 
     .submit-button {
       width: 100%;
       background-color: $primary-color;
       border: none;
-      color: $white-color; // White color for the text of the button
+      color: #ffffff; // White color for the text of the button
       font-weight: bold;
       transition: background-color 0.3s ease;
-
-      &:hover {
-        background-color: $hover-color;
-      }
     }
   }
 

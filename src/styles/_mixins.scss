@@ -10,7 +10,7 @@
 /* Button Mixin */
 @mixin button($bg-color, $text-color) {
   background-color: $bg-color;
-  color: $text-color;
+  //color: $text-color;
   padding: $spacer $spacer-lg;
   border-radius: 4px;
   border: none;

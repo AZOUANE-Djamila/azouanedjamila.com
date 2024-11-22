@@ -23,7 +23,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`, 
       options: {
-        name: `projects`,
+        name: `Projects`,
         path: `${__dirname}/src/content/projects`, // Path to your projects folder
       },
     },
@@ -31,7 +31,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `experiences`,
+        name: `Experiences`,
         path: `${__dirname}/src/content/experiences`, // Path to your experiences folder
       },
     },

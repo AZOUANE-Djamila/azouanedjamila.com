@@ -9,8 +9,6 @@ const App: React.FunctionComponent = () => {
   return (
       <Layout>
           <Hero />
-          <ExperienceSection />
-          <Contact />
       </Layout>
   );
 };

@@ -13,6 +13,12 @@ module.exports = {
     description: `Showcase of my experience, projects, and skills.`,
     author: `@azouanedjamila`,
     siteUrl: `https://azouanedjamila.com`,
+    keywords: `Portfolio, Djamila, Experience, Projects, Web Developer, React Developer`,
+    social: {
+      twitter: `@azouanedjamila`,
+      github: `https://github.com/azouanedjamila`,
+      linkedin: `https://www.linkedin.com/in/azouanedjamila`,
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,        // For managing the head tag and SEO
@@ -23,7 +29,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`, 
       options: {
-        name: `Projects`,
+        name: `projects`,
         path: `${__dirname}/src/content/projects`, // Path to your projects folder
       },
     },
@@ -31,7 +37,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `Experiences`,
+        name: `experiences`,
         path: `${__dirname}/src/content/experiences`, // Path to your experiences folder
       },
     },
@@ -39,7 +45,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,  // Setup PWA capabilities and site metadata
       options: {
         name: `Portfolio Azouane Djamila`,
-        short_name: `Portfolio`,
+        short_name: `portfolio`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#333333`,
@@ -47,6 +53,37 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // Path to your site's icon
       },
     },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+            allSitePage {
+              edges {
+                node {
+                  path
+                }
+              }
+            }
+          }
+        `,
+        resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
+        serialize: ({ site, allSitePage }) =>
+          allSitePage.edges.map(({ node }) => {
+            return {
+              url: `${site.siteMetadata.siteUrl}${node.path}`,
+              changefreq: `weekly`,
+              priority: 0.7,
+            };
+          }),
+      },
+    },    
   ],
   flags: {
     DEV_SSR: true,

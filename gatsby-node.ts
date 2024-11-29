@@ -1,9 +1,9 @@
-const path = require("path");
+const path = require('path');
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  // Query all pages created by Gatsby
+  // GraphQL query to get all existing site pages
   const result = await graphql(`
     query {
       allSitePage {
@@ -14,47 +14,52 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  // Check for errors in the query result
+  // Handle errors from the GraphQL query
   if (result.errors) {
     console.error(result.errors);
-    throw new Error("Error querying all site pages");
+    throw new Error('Error querying all site pages');
   }
 
-  // Create custom pages if they don't exist already
-  const pagePaths = result.data.allSitePage.nodes.map((page) => page.path);
+  // Extract existing page paths from the query result
+  const pagePaths = result.data.allSitePage.nodes.map(page => page.path);
 
-  // Create experiences page if not already created
-  if (!pagePaths.includes("/experiences/")) {
-    createPage({
-      path: "/experiences/",
-      component: require.resolve("./src/pages/experiences.tsx"), // Make sure this path is correct
-      context: {},
-    });
+  // Normalize paths by ensuring trailing slashes are consistent
+  const normalizePath = (path) => {
+    return path.endsWith('/') ? path : `${path}/`;
+  };
+  
+  // Define pages to create with their paths and component paths
+  const pages = [
+    { path: '/experiences/', componentPath: './src/pages/experiences.tsx' },
+    { path: '/projects/', componentPath: './src/pages/projects.tsx' },
+    { path: '/contact/', componentPath: './src/pages/contact.tsx' },
+    { path: '/404/', componentPath: './src/pages/404.tsx' },
+  ];
+  
+  // Use a for loop to create pages conditionally
+  for (const { path: pagePath, componentPath } of pages) {
+    const normalizedPath = normalizePath(pagePath);
+  
+    // Check if the page already exists by using the normalized path
+    if (!pagePaths.includes(normalizedPath)) {
+      console.log(`Creating page: ${pagePath}`);  // Debug log
+      try {
+        // Resolve the component path dynamically using absolute path
+        const resolvedComponent = path.resolve(__dirname, componentPath);
+        console.log(`Resolved component path: ${resolvedComponent}`);
+  
+        // Create the page using createPage API
+        createPage({
+          path: normalizedPath,
+          component: resolvedComponent,
+          context: {},  // You can pass any data to the page here
+        });
+      } catch (error) {
+        // Log an error if the component resolution fails
+        console.error(`Error resolving component for path ${pagePath}:`, error);
+      }
+    } else {
+      console.log(`Page already exists: ${pagePath}`);
+    }
   }
-
-  // Create other pages similarly
-  if (!pagePaths.includes("/projects/")) {
-    createPage({
-      path: "/projects/",
-      component: require.resolve("./src/pages/projects.tsx"), // Ensure the path is correct
-      context: {},
-    });
-  }
-
-  if (!pagePaths.includes("/contact/")) {
-    createPage({
-      path: "/contact/",
-      component: require.resolve("./src/pages/contact.tsx"), // Ensure the path is correct
-      context: {},
-    });
-  }
-
-  // Handle 404 page
-  if (!pagePaths.includes("/404/")) {
-    createPage({
-      path: "/404/",
-      component: require.resolve("./src/pages/404.tsx"),
-      context: {},
-    });
-  }
-};
+}

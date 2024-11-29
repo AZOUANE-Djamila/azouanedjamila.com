@@ -21,19 +21,24 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,        // For managing the head tag and SEO
-    `gatsby-plugin-image`,               // For optimized image loading
-    `gatsby-transformer-sharp`,          // Image transformations like resizing
-    `gatsby-plugin-sharp`,               // For optimized image handling
-    `gatsby-transformer-remark`,         // Markdown file processing (content)
+    {resolve: 'gatsby-plugin-page-creator',
+      options: {
+        path: `${__dirname}/src/pages`,  // Specify the path to your pages directory
+      }
+    },
+    `gatsby-plugin-react-helmet`, // For managing the head tag and SEO
+    `gatsby-plugin-image`, // For optimized image loading
+    `gatsby-transformer-sharp`, // Image transformations like resizing
+    `gatsby-plugin-sharp`, // For optimized image handling
+    `gatsby-transformer-remark`, // Markdown file processing (content)
     {
-      resolve: `gatsby-source-filesystem`, 
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: `projects`,
         path: `${__dirname}/src/content/projects`, // Path to your projects folder
       },
     },
-    `gatsby-plugin-sass`,                // Support for SASS/SCSS styles
+    `gatsby-plugin-sass`, // Support for SASS/SCSS styles
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -42,7 +47,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,  // Setup PWA capabilities and site metadata
+      resolve: `gatsby-plugin-manifest`, // Setup PWA capabilities and site metadata
       options: {
         name: `Portfolio Azouane Djamila`,
         short_name: `portfolio`,
@@ -56,34 +61,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        output: `/sitemap.xml`,
-        query: `
-          {
-            site {
-              siteMetadata {
-                siteUrl
-              }
-            }
-            allSitePage {
-              edges {
-                node {
-                  path
-                }
-              }
-            }
-          }
-        `,
-        resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
-        serialize: ({ site, allSitePage }) =>
-          allSitePage.edges.map(({ node }) => {
-            return {
-              url: `${site.siteMetadata.siteUrl}${node.path}`,
-              changefreq: `weekly`,
-              priority: 0.7,
-            };
-          }),
+        createLinkInHead: true, // Automatically adds the sitemap link to the head of the pages
+        output: `/sitemap.xml`, // Path to the generated sitemap
+        exclude: [`/404.html`, `/dev-404-page/`], // Exclude any unnecessary paths
       },
-    },    
+    },
   ],
   flags: {
     DEV_SSR: true,
@@ -92,4 +74,4 @@ module.exports = {
     PARALLEL_SOURCING: true,
     DETECT_NODE_MUTATIONS: true,
   },
-}
+};
